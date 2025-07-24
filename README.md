@@ -59,6 +59,8 @@ For production, store the key securely (e.g., using environment variables or sec
 
 
 ## Bonus (Optional) Features
--category filter (e.g., Business, Sports, Tech) using tabs or dropdown. 
--Pull-to-refresh using RefreshIndicator 
--Shimmer loading effect (using shimmer package)
+
+- Category filter (e.g., Business, Sports, Tech) using tabs or dropdown. 
+- Pull-to-refresh using RefreshIndicator 
+- Shimmer loading effect (using shimmer package)
+
