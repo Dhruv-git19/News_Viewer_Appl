@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/screens/news_list_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'blocs/news_bloc.dart';
+import 'screens/news_list_screen.dart';
+import 'services/news_api_service.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+    const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'News App',
-      theme: ThemeData(
-      ),
-      home:NewsListScreen(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 69, 165, 210)),
+        useMaterial3: true
+      ),
+      home: BlocProvider(
+        create: (context) => NewsBloc(NewsApiService()),
+        child: NewsListScreen(),
+      ),
     );
   }
 }

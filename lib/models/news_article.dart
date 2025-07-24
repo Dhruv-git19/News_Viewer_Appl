@@ -1,4 +1,6 @@
-class NewsArticle {
+import 'package:equatable/equatable.dart';
+
+class NewsArticle extends Equatable {
   final String title;
   final String description;
   final String content;
@@ -6,7 +8,7 @@ class NewsArticle {
   final String imageUrl;
   final String source;
 
-  NewsArticle({
+  const NewsArticle({
     required this.title,
     required this.description,
     required this.content,
@@ -25,4 +27,14 @@ class NewsArticle {
       source: json['source']['name'] ?? 'Unknown Source',
     );
   }
+
+  @override
+  List<Object?> get props => [
+        title,
+        description,
+        content,
+        url,
+        imageUrl,
+        source,
+      ];
 }
